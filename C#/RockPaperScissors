@@ -1,1 +1,95 @@
+//No OOP used simple rock paper scissors in a single function
 
+using System;
+
+namespace SampleStack
+{
+    class SampleStack
+    {
+        public static void Main(String[] args)
+        {
+            string inputPlayer, inputCPU, again;
+            int randomInt, scorePlayer = 0, scoreCPU = 0;
+            Random rnd = new Random();
+
+            do
+            {
+                randomInt = rnd.Next(1, 4);
+                Console.WriteLine("Choose between ROCK, PAPER and SCISSORS");
+
+                inputPlayer = Console.ReadLine().ToUpper();
+                
+                switch (randomInt)
+                {
+                    case (1):
+                        inputCPU = "ROCK";
+                        Console.WriteLine("Computer chose Rock");
+                        if (inputPlayer == "ROCK")
+                        {
+                            Console.WriteLine("DRAW!!!\n");
+                        }
+                        else if (inputPlayer == "PAPER")
+                        {
+                            Console.WriteLine("PLAYER WINS");
+                            scorePlayer++;
+                        }
+                        else if (inputPlayer == "SCISSORS")
+                        {
+                            Console.WriteLine("COMPUTER WINS");
+                            scoreCPU++;
+                        }
+                        break;
+                    case (2):
+                        inputCPU = "PAPER";
+                        Console.WriteLine("Computer chose PAPER");
+
+                        if (inputPlayer == "ROCK")
+                        {
+                            Console.WriteLine("COMPUTER WINS!!!");
+                            scoreCPU++;
+                        }
+                        else if (inputPlayer == "PAPER")
+                        {
+                            Console.WriteLine("DRAW!!!");
+                        }
+                        else if (inputPlayer == "SCISSORS")
+                        {
+                            Console.WriteLine("PLAYER WINS!!!!");
+                            scorePlayer++;
+                        }
+                        break;
+                    case (3):
+                        inputCPU = "SCISSORS";
+                        Console.WriteLine("Computer chose Scissors");
+
+                        if (inputPlayer == "ROCK")
+                        {
+                            Console.WriteLine("PLAYER WINS!!!!");
+                            scorePlayer++;
+                        }
+                        else if (inputPlayer == "PAPER")
+                        {
+                            Console.WriteLine("COMPUTER WINS!!!!");
+                            scoreCPU++;
+                        }
+                        else if (inputPlayer == "SCISSORS")
+                        {
+                            Console.WriteLine("DRAW!!!!");
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Entry!!!");
+                        break;
+                }
+               
+
+                Console.WriteLine($"The score is PLAYER : {scorePlayer}  COMPUTER : {scoreCPU}");
+
+                Console.WriteLine("Press N to stop playing");
+                again = Console.ReadLine();
+                again = again.ToUpper();
+            } while (again != "N");
+
+        }
+    }
+}
